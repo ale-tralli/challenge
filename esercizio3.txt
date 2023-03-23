@@ -1,0 +1,11 @@
+# Write a cron string that every sunday night create a backup of /home/user folder and 
+# send it to a remote server which can be reached using ssh with user@192.168.1.100 
+# (consider private and public key already correctly installed and configured)
+
+
+
+0 22 * * 0 rsync -aqz /home/user user@192.168.1.100:/remote/backup/directory
+
+# -a: crea un archivio dei file, compresi gli attributi dei file
+# -q: modalità silente
+# -z: attiva la compressione dei file in modo da alleggerire il carico di lavoro della rete
